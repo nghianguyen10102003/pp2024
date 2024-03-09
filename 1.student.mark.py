@@ -21,12 +21,12 @@ def inputCourse(m):
         name_c[i]=input("Enter the name of course "+str(i+1)+ ":")
 
 #e is student id 
-#k is course iddd
+#k is course id
 def addMark(e,k):
     for i in range(n):
         for j in range(m):
             if (id_s[i]==e and id_c[j]==k):
-                mark[e][k]=input("Enter the mark:")
+                mark[i][j]=input("Enter the mark:")
                 
 def checkStudent():
     for i in range(n):
@@ -39,12 +39,15 @@ def checkCourse():
         print("course "+str(i+1)+" id:" +str(id_c[i]))
         print("course"+str(i+1)+" name:" +str(name_c[i]))
 
-#a is id course
+#a is id course id
 def checkMark(a):
-    for i in range (m):
-        if a==id_c[i] :
-            for h in range(n):
-                print("student "+str(h+1)+" id:" +str(id_s[h])+" ,mark:" +str(mark[h][i]))
+    if a in id_c:
+        course_index = id_c.index(a)
+        for i in range(n):
+            if mark[i][course_index] is not None:
+                print("student " + str(i + 1) + " id:" + str(id_s[i]) + ", mark:" + str(mark[i][course_index]))
+    else:
+        print("Course not found.")
 
     
 inputStudent(n)
@@ -53,11 +56,13 @@ while True:
     print("Do you want to add mark?(1 is yes/0 is no)")
     a=int(input())
     if a==1:
-        aa=input("Enter the id of student you want to add mark:")
-        bb=input("Enter the id of course:")
-        addMark(aa,bb)
+        st_id=input("Enter the id of student you want to add mark:")
+        cr_id=input("Enter the id of course:")
+        addMark(st_id,cr_id)
     else:
         break
-b=int(input("Enter id course you want to check:")) 
-checkMark(b)
+checkStudent()
+checkCourse()
+Course_id=int(input("Enter id course you want to check:")) 
+checkMark(Course_id)
 
