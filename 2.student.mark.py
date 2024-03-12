@@ -42,19 +42,19 @@ class School:
                 return
         print("Student ID not found!")
 
-    def print_students(self):
+    def print_s(self):
         for student in self.students:
             print("Student ID:", student.id)
             print("Name:", student.name)
             print("Date of Birth:", student.dob)
 
-    def print_courses(self):
+    def print_c(self):
         for course in self.courses:
             print("Course ID:",course.id)
             print("Name:",course.name)
 
 
-    def print_marks_for_course(self,course_id):
+    def print_m(self,course_id):
         for student in self.students:
             if course_id in student.marks:
                 print("Student ID:",student.id)
@@ -82,11 +82,11 @@ while True:
         break
 
 print("\nList of students:")
-school.print_students()
+school.print_s()
 
 print("\nList of courses:")
-school.print_courses()
+school.print_c()
 
 course_id = input("Enter the id of course you want to check marks for: ")
 print("\nMarks for course {}:".format(course_id))
-school.print_marks_for_course(course_id)
+school.print_m(course_id)
