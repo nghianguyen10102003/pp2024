@@ -41,26 +41,12 @@ def checkCourse():
 
 #a is id course id
 def checkMark(a):
-    aa=False
+
     for i in range(m):
         if a ==id_c[i]:
-            aa=True
             for j in range(n):
-                print("student " + str(j + 1) + " id:" + str(id_s[j]) + ", mark:" + str(mark[j][i]))
-    print(aa)        
+                print("student " + str(j + 1) + " id:" + str(id_s[j]) + ", mark:" + str(mark[j][i]))        
 
-
-
-
-    '''if a in id_c:
-        course_index = id_c.index(a)
-        for i in range(n):
-            if mark[i][course_index] is not None:
-                print("student " + str(i + 1) + " id:" + str(id_s[i]) + ", mark:" + str(mark[i][course_index]))
-    else:
-        print("Course not found.")'''
-
-    
 inputStudent(n)
 inputCourse(m)
 while True:

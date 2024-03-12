@@ -18,26 +18,20 @@ class School:
         self.students = []
         self.courses = []
 
-    def add_student(self, student):
-        self.students.append(student)
-
-    def add_course(self, course):
-        self.courses.append(course)
-
     def input_students(self, n):
         for i in range(n):
             id = input("Enter id of student {}: ".format(i + 1))
             name = input("Enter name of student {}: ".format(i + 1))
             dob = input("Enter date of birth of student {}: ".format(i + 1))
             student = Student(id, name, dob)
-            self.add_student(student)
+            self.students.append(student)
 
     def input_courses(self, m):
         for i in range(m):
             id = input("Enter the id of course {}: ".format(i + 1))
             name = input("Enter the name of course {}: ".format(i + 1))
             course = Course(id, name)
-            self.add_course(course)
+            self.courses.append(course)
 
     def add_mark(self, student_id, course_id):
         for student in self.students:
@@ -58,6 +52,7 @@ class School:
         for course in self.courses:
             print("Course ID:",course.id)
             print("Name:",course.name)
+
 
     def print_marks_for_course(self,course_id):
         for student in self.students:
