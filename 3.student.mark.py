@@ -84,32 +84,42 @@ class School:
 
 school = School()
 
-n = int(input("Enter the number of students: "))
-school.input_s(n)
-
-m = int(input("Enter the number of courses: "))
-school.input_c(m)
-
-while True:
-    print("Do you want to add mark? (1 is yes / 0 is no)")
-    choice = int(input())
-    if choice == 1:
+while True :
+    print("1 Enter student info:")
+    print("2 Enter courses info:")
+    print("3 Enter mark for a student:")
+    print("4 List of students:")
+    print("5 List of course:")
+    print("6 Check marks of one course:")
+    print("7 Caculate GPA for a student:")
+    print("8 Print sorted student list:")
+    print("9 END")
+    a=input("Chose one:")
+    
+    if a==1:
+        n = int(input("Enter the number of students: "))
+        school.input_s(n)
+    elif a==2:
+        m = int(input("Enter the number of courses: "))
+        school.input_c(m)
+    elif a==3:
         student_id = input("Enter the id of student: ")
         course_id = input("Enter the id of course: ")
         school.input_mark(student_id,course_id)
-    else:
+    elif a==4:
+        school.print_s()
+    elif a==5:
+        school.print_c()
+    elif a==6:
+        course_id = input("Enter the id of course you want to check marks for: ")
+        school.print_m(course_id)
+    elif a==7:
+        cal_id=input("Enter your id student you want to calculate the GPA:")
+        print("Student id :{},GPA: {}".format(cal_id,school.cal_aver_of_one(cal_id)))
+    elif a==8:
+        school.sort_s_l_gpa()
+    elif a==9:
         break
+    
+    
 
-print("\nList of students:")
-school.print_s()
-
-print("\nList of courses:")
-school.print_c()
-
-course_id = input("Enter the id of course you want to check marks for: ")
-school.print_m(course_id)
-
-cal_id=input("Enter your id student you want to calculate the GPA:")
-print("Student id :{},GPA: {}".format(cal_id,school.cal_aver_of_one(cal_id)))
-print("Print sorted student list:")
-school.sort_s_l_gpa()
